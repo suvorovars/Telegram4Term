@@ -9,8 +9,10 @@ class MainForm(npyscreen.ActionForm):
         # Добавляем виджет TitleText на форму
         y, x = self.useable_space()
         self.add(InputMessBox, name='Ввод:', relx= x // 4, rely= y - y // 5)
-        self.add(ListChatBox, name='Чаты:', relx=2, rely=2,  max_width=x // 4 - 2)
         self.add(ChatBox, name='Сообщения', relx=x // 4, rely=2, max_height=y - y // 5 - 2)
+        self.add(ListChatBox, name='Чаты:', relx=2, rely=y // 5,  max_width=x // 4 - 2)
+        self.add(InputSearchBox, name='Поиск:', relx=2, rely=2, max_height=y // 5 - 2, max_width=x // 4 - 2)
+
     # переопределенный метод, срабатывающий при нажатии на кнопку «ok»
     def on_ok(self):
         self.parentApp.setNextForm(None)
